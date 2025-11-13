@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Cinema-Account access</title>
+    <style>
+        body{
+            background: url('https://images.thedirect.com/media/photos/posd1_1.jpg') no-repeat center center/cover; /* Placeholder image */
+
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header{
+            background-color: #333;
+            color:goldenrod;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1{
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav a{
+            color: gold;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        nav a:hover{
+            text-decoration: underline;
+            color: darkorange;
+        }
+        main{
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        form{
+            display: grid;
+            gap: 15px;
+        }
+        fieldset{
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        legend{
+            font-weight: bold;
+            padding: 0 10px;
+        }
+        label{
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select{
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button{
+            background-color: goldenrod;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: darkorange;
+        }
+        .tab-controls{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab-button{
+            background-color: #333;
+            color: gold;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .tab-button:hover{
+            background-color: darkorange;
+        }
+        footer{
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+        .form-content {
+            display: none;
+        }
+        .form-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Customer Account Access</h1>
+                <nav>
+            <a href="Index.html">Home</a>
+            <a href="register.html">Register/Login</a>
+            <a href="booking.html">Book Tickets</a>
+
+        </nav>
+    </header>
+    <main class="registration-form">
+        <h2>Welcome Back or Join us!</h2>
+        <div class="tab-controls">
+            <div id="Login Tab" class="tab-button" onclick="showForm('Login')">Existing Customer Logins</div>
+            <div id="SignUp Tab" class="tab-button" onclick="showForm('SignUp')">New Customer Sign Up</div>
+        </div>
+        
+        <div id="Login Form" class="form-content active">
+            <form id="Login Form" class="Login-form">
+                <p>Use your registered email and unique ID to log in</p>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="romansande@gmail.com" required>
+                <label for="unique-id">Unique ID:</label>
+                <input type="text" id="unique-id" name="unique-id" placeholder="GCS-12345" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div id="SignUp Form" class="form-content form-hidden">
+            <form id="SignUp Form" class="SignUp-form">
+                <p>Register for the first time all fields are mandatory</p>
+                <fieldset><legend>Personal Information</legend>
+                    <label for="firstName">First Name:</label><input type="text" id="firstName" name="firstName" placeholder="Roman" required>
+                    <label for="lastName">Last Name:</label><input type="text" id="lastName" name="lastName" placeholder="Sande" required>
+                    <label for="signupEmail">Email:</label><input type="email" id="signupEmail" name="email" placeholder="romansande@gmail.com" required>
+                    <label for="mobile">Mobile:</label><input type="text" id="mobile" name="mobile" placeholder="123-456-7890" required>
+                </fieldset>
+
+                <fieldset><legend>Residential Information</legend>
+                    <label for="address">Address:</label><input type="text" id="address" name="address" placeholder="123 Kisii Campus" required>
+                    <label for="city">City:</label><input type="text" id="city" name="city" placeholder="Kisii" required>
+                    <label for="zip">Zip Code:</label><input type="text" id="zip" name="zip" placeholder="12345" required>
+                </fieldset>
+
+                <button type="submit">Create Account & Get unique ID</button>
+            </form>
+        </div>
+
+        <!-- Floating Support Button -->
+        <button id="support-btn" class="support-button" onclick="toggleSupport()">
+            💬 Need Help?
+        </button>
+
+        <!-- Support Chat Overlay -->
+        <div id="support-overlay" class="support-overlay">
+            <div class="support-popup">
+                <div class="support-header">
+                    <h3>💬 Customer Support</h3>
+                    <button class="close-support" onclick="toggleSupport()">×</button>
+                </div>
+                <div class="chat-container">
+                    <div id="chat-messages" class="chat-messages"></div>
+                    <div class="chat-input-container">
+                        <select id="advisor-select" class="chat-input">
+                            <option value="">Select an Advisor (Optional)</option>
+                            <option value="advisor3">Armour Johns - General Support</option>
+                            <option value="advisor6">Roman Sande - About Gold Cinema</option>
+                        </select>
+                        <textarea id="issue-description" class="chat-input" placeholder="Describe your issue here..." rows="3"></textarea>
+                        <button id="submit-issue" class="chat-button">Submit Issue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <style>
+        /* Chat Styles */
+        .chat-container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: white;
+        }
+        
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .chat-input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .chat-input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .chat-button {
+            background-color: goldenrod;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .chat-button:hover {
+            background-color: darkorange;
+        }
+        
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .user-message {
+            background-color: #e3f2fd;
+            margin-left: 20%;
+        }
+        
+        .advisor-message {
+            background-color: #f5f5f5;
+            margin-right: 20%;
+        }
+        
+        .message-header {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        #support-chat {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+        }
+        
+        /* Unique ID Modal Styles */
+        .unique-id-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .unique-id-display {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: goldenrod;
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 2px solid goldenrod;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .modal-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .modal-buttons button:first-child {
+            background-color: #333;
+            color: white;
+        }
+        
+        .modal-buttons button:last-child {
+            background-color: goldenrod;
+            color: white;
+        }
+        
+        /* Floating Support Button */
+        .support-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            transition: all 0.3s;
+        }
+        
+        .support-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        
+        /* Support Chat Overlay */
+        .support-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .support-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80%;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .support-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .close-support {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #666;
+        }
+    </style>
+    <footer>
+        <p>&copy; 2025 Gold Cinema. All rights reserved. | <a href="admin.html" style="color: #666; text-decoration: none; font-size: 0.8em;">Admin</a></p>
+    </footer>
+<script src="auth.js"></script>
+</body>
+
+</html>

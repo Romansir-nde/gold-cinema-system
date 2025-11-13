@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLD CINEMA SYSTEM</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color:goldenrod;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav a {
+            color: gold;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: darkorange;
+        }
+        .hero-section {
+            background: url('https://images.thedirect.com/media/photos/posd1_1.jpg') no-repeat center center/cover; /* Placeholder image */
+            height: 500px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            color: white;
+            text-align: center;
+
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        .hero-content h1 {
+            font-size: 3.8em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .hero-content p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        footer {
+            background-color: #333;
+            color: gold;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to GOLD CINEMA </h1>
+        <nav>
+            <a href="Index.html">Home</a>
+            <a href="register.html">Register/Login</a>
+            <a href="booking.html">Book Tickets</a>
+
+        </nav>
+
+    </header>
+    <main>
+        <section id="Home" class="hero-section">
+            <div class="hero-content">
+                <h2>EXPERIENCE THE MAGIC OF CINEMA</h2>
+                <P>Book for your favourite movies, plays, and concerts effortlessly</P>
+                <p class="cta"><a href="register.html">Get Started</a></p>
+
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Gold Cinema. All rights reserved. | <a href="admin.html" style="color: #666; text-decoration: none; font-size: 0.8em;">Admin</a></p>
+    </footer>
+
+</body>
+</html>

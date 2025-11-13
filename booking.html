@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Cinema-Booking Tickets</title>
+    <style>
+         body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color:goldenrod;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav a {
+            color: gold;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: darkorange;
+        }
+        main.booking-system {
+            max-width: 8000px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        main.booking-system h2 {
+            text-align: center;
+            color: #333;
+        }
+        form{
+            display: grid;
+            gap: 15px;
+        }
+        fieldset
+        {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input, select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        button {
+            padding: 15px;
+            background-color: goldenrod;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkorange;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: gold;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        /* Support Chat Styles */
+        .chat-container {
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: white;
+        }
+        
+        .chat-messages {
+            height: 250px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .chat-input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .chat-input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .chat-button {
+            background-color: goldenrod;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .chat-button:hover {
+            background-color: darkorange;
+        }
+        
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .user-message {
+            background-color: #e3f2fd;
+            margin-left: 20%;
+        }
+        
+        .advisor-message {
+            background-color: #f5f5f5;
+            margin-right: 20%;
+        }
+        
+        .message-header {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Performance Booking</h1>
+        <nav>
+            <a href="Index.html">Home</a>
+            <a href="register.html">Register/Login</a>
+            <a href="booking.html">Book Tickets</a>
+        </nav>
+    </header>
+    <main class="booking-system">
+        <h2>Select a performance and book</h2>
+        <form id="booking-form">
+            <fieldset>
+                <legend>Performance Details</legend>
+                <label for="production-type">Production Type:</label>
+                <select id="production-type" name="production-type" required>
+                    <option value="">Select a production type</option>
+                    <option value="movie">Movie</option>
+                    <option value="play">Play</option>
+                    <option value="series">TV Series</option>
+                    <option value="concert">Concert</option>
+                </select>
+                <label for="production-name">Production Name:</label>
+                <select id="production-name" name="production-name" required>
+                    <option value="">Select a production name</option>
+                    <!-- Movies -->
+                    <option value="movie1" data-type="movie">The Great Escape</option>
+                    <option value="movie2" data-type="movie">Avengers: Endgame</option>
+                    <option value="movie3" data-type="movie">The Lion King</option>
+                    <option value="movie4" data-type="movie">Black Panther</option>
+                    <option value="movie5" data-type="movie">Spider-Man: No Way Home</option>
+                    <option value="movie6" data-type="movie">Top Gun: Maverick</option>
+                    <option value="movie7" data-type="movie">Jurassic World</option>
+                    <option value="movie8" data-type="movie">Fast & Furious 9</option>
+                    <!-- Plays -->
+                    <option value="play1" data-type="play">Hamlet</option>
+                    <option value="play2" data-type="play">Romeo and Juliet</option>
+                    <option value="play3" data-type="play">Macbeth</option>
+                    <option value="play4" data-type="play">A Midsummer Night's Dream</option>
+                    <option value="play5" data-type="play">The Tempest</option>
+                    <option value="play6" data-type="play">King Lear</option>
+                    <!-- TV Series -->
+                    <option value="series1" data-type="series">Game of Thrones</option>
+                    <option value="series2" data-type="series">Breaking Bad</option>
+                    <option value="series3" data-type="series">Stranger Things</option>
+                    <option value="series4" data-type="series">The Crown</option>
+                    <option value="series5" data-type="series">Money Heist</option>
+                    <option value="series6" data-type="series">Squid Game</option>
+                    <!-- Concerts -->
+                    <option value="concert1" data-type="concert">A Dolls House</option>
+                    <option value="concert2" data-type="concert">Jazz Night Live</option>
+                    <option value="concert3" data-type="concert">Rock Festival 2025</option>
+                    <option value="concert4" data-type="concert">Classical Symphony</option>
+                    <option value="concert5" data-type="concert">Pop Stars Live</option>
+                </select>
+
+                <label for="performance-date">Performance Date:</label>
+                <input type="date" id="performance-date" name="performance-date" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Ticket Details(required for sales tracking)</legend>
+                <label for="numberOfTickets">Number of Tickets:</label>
+                <input type="number" id="numberOfTickets" name="numberOfTickets" min="1" max="10" required>
+                <label for="seats">Select Seats (Click to select/deselect):</label>
+                <p style="font-size: 0.9em; color: #666;">Cinema Layout: 25 rows (A-Y) × 40 seats each = 1000 total seats</p>
+                <div id="seat-map" class="seat-map">
+                    <!-- Seats will be generated here -->
+                </div>
+                <input type="hidden" id="selected-seats" name="selected-seats" required>
+                <div id="selected-seats-display" style="margin-top: 10px; font-weight: bold; color: #333;"></div>
+                <label for="saleDate">Date of Sale:</label>
+                <input type="date" id="saleDate" value="" required>
+
+                <div class="seat-map-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #4CAF50;"></div>
+                        <span>Available</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #2196F3;"></div>
+                        <span>Selected</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #f44336;"></div>
+                        <span>Occupied</span>
+                    </div>
+                </div>
+
+                <style>
+                    .seat-map {
+                        display: grid;
+                        grid-template-columns: repeat(40, 1fr);
+                        gap: 2px;
+                        margin: 15px 0;
+                        padding: 15px;
+                        background-color: #f5f5f5;
+                        border-radius: 5px;
+                        max-height: 400px;
+                        overflow-y: auto;
+                        border: 2px solid #ddd;
+                    }
+
+                    .seat {
+                        padding: 4px 2px;
+                        text-align: center;
+                        background-color: #4CAF50;
+                        color: white;
+                        border: none;
+                        border-radius: 2px;
+                        cursor: pointer;
+                        font-size: 0.6em;
+                        min-height: 20px;
+                        transition: all 0.2s;
+                    }
+
+                    .seat:hover {
+                        background-color: #45a049;
+                        transform: scale(1.1);
+                    }
+
+                    .seat.selected {
+                        background-color: #2196F3;
+                        transform: scale(1.1);
+                    }
+
+                    .seat.occupied {
+                        background-color: #f44336;
+                        cursor: not-allowed;
+                    }
+
+                    .seat-map-legend {
+                        display: flex;
+                        justify-content: center;
+                        gap: 20px;
+                        margin-bottom: 10px;
+                    }
+
+                    .legend-item {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        font-size: 0.9em;
+                    }
+
+                    .legend-color {
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 2px;
+                    }
+                </style>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Need Booking Assistance? (Optional)</legend>
+                <label for="advisor-select">Select a Booking Advisor:</label>
+                <select id="advisor-select" name="advisor-select">
+                    <option value="">No assistance needed</option>
+                    <option value="advisor1">Juliana Ngaira - Booking Specialist</option>
+                    <option value="advisor2">Kelvin Kipkemoi - Technical Support</option>
+                    <option value="advisor4">Mary Wanjiku - VIP Services</option>
+                    <option value="advisor5">John Mwangi - Group Bookings</option>
+                </select>
+                
+                <div id="advisor-help" style="display: none; margin-top: 15px;">
+                    <label for="help-message">Describe what you need help with:</label>
+                    <textarea id="help-message" name="help-message" rows="3" placeholder="e.g., Need help selecting seats, group booking assistance, etc."></textarea>
+                </div>
+            </fieldset>
+            
+            <button type="submit">Book Tickets</button>
+        </form>
+
+
+    </main>
+    <footer>
+        <p>&copy; 2025 Gold Cinema. All rights reserved. | <a href="admin.html" style="color: #666; text-decoration: none; font-size: 0.8em;">Admin</a></p>
+    </footer>
+    <script src="frontend.js"></script>
+</body>
+</html>

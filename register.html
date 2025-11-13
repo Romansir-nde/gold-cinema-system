@@ -386,6 +386,74 @@
             cursor: pointer;
             color: #666;
         }
+        
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+                padding: 0 10px;
+            }
+            nav a {
+                margin: 0 8px;
+                font-size: 1em;
+                padding: 8px 12px;
+            }
+            main {
+                padding: 10px;
+                margin: 10px;
+            }
+            .tab-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .tab-button {
+                width: 100%;
+                text-align: center;
+            }
+            fieldset {
+                padding: 10px;
+            }
+            input, select {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            .support-popup {
+                width: 95%;
+                margin: 10px;
+            }
+            .chat-messages {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.4em;
+            }
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 5px;
+            }
+            nav a {
+                font-size: 0.9em;
+                margin: 2px;
+            }
+            .tab-button {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+            .modal-content {
+                max-width: 90%;
+                padding: 20px;
+            }
+            .support-button {
+                bottom: 10px;
+                right: 10px;
+                padding: 12px 16px;
+                font-size: 0.9em;
+            }
+        }
     </style>
     <footer>
         <p>&copy; 2025 Gold Cinema. All rights reserved. | <a href="admin.html" style="color: #666; text-decoration: none; font-size: 0.8em;">Admin</a></p>

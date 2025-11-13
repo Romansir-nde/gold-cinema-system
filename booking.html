@@ -159,6 +159,78 @@
             color: #666;
             margin-bottom: 5px;
         }
+        
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+                padding: 0 10px;
+            }
+            nav a {
+                margin: 0 8px;
+                font-size: 1em;
+                padding: 8px 12px;
+            }
+            main.booking-system {
+                max-width: 100%;
+                margin: 10px;
+                padding: 15px;
+            }
+            .seat-map {
+                grid-template-columns: repeat(20, 1fr);
+                gap: 1px;
+                max-height: 300px;
+            }
+            .seat {
+                padding: 2px 1px;
+                font-size: 0.5em;
+                min-height: 15px;
+            }
+            fieldset {
+                padding: 10px;
+            }
+            input, select, textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            .legend-item {
+                font-size: 0.8em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.4em;
+            }
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 5px;
+            }
+            nav a {
+                font-size: 0.9em;
+                margin: 2px;
+            }
+            main.booking-system {
+                padding: 10px;
+            }
+            .seat-map {
+                grid-template-columns: repeat(15, 1fr);
+            }
+            .seat {
+                font-size: 0.4em;
+                min-height: 12px;
+            }
+            .seat-map-legend {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+            button {
+                padding: 12px;
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>

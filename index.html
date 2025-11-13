@@ -22,12 +22,22 @@
             margin: 0;
             font-size: 2.5em;
         }
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+        }
         nav a {
             color: gold;
             margin: 0 15px;
             text-decoration: none;
             font-size: 1.2em;
             font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s;
         }
         nav a:hover {
             text-decoration: underline;
@@ -69,6 +79,81 @@
             font-size: 1.3em;
             margin-bottom: 30px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        .cta a {
+            background-color: goldenrod;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .cta a:hover {
+            background-color: darkorange;
+            transform: scale(1.05);
+        }
+        
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+                padding: 0 10px;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+            nav a {
+                margin: 0;
+                padding: 10px 20px;
+                width: 80%;
+                text-align: center;
+                background-color: rgba(255, 215, 0, 0.1);
+            }
+            .hero-section {
+                height: 400px;
+                padding: 20px;
+            }
+            .hero-content {
+                padding: 0 20px;
+            }
+            .hero-content h1 {
+                font-size: 2.2em;
+            }
+            .hero-content p {
+                font-size: 1.1em;
+            }
+            .cta a {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            footer {
+                padding: 15px 10px;
+                font-size: 0.9em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            nav a {
+                font-size: 1em;
+                width: 90%;
+            }
+            .hero-section {
+                height: 350px;
+            }
+            .hero-content h1 {
+                font-size: 1.8em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
         }
         footer {
             background-color: #333;
